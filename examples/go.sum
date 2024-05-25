@@ -1,0 +1,4 @@
+github.com/bit101/bitlib v0.5.2 h1:n5uw8Vk/BhBgW9FXtUCTgTB6F6PS7rCdkd1PLAGzY6g=
+github.com/bit101/bitlib v0.5.2/go.mod h1:d0L7f0E8a21VD7cDuVuIsNyD4yqqxZsvgKxh5Nx433E=
+github.com/bit101/wire v0.1.0 h1:BFLFnehC2qt6NpWNNQg04RpifbXgRFxwJfVnVQ4MwGY=
+github.com/bit101/wire v0.1.0/go.mod h1:cJUdD0ysDcLqQqr02IvZU24ADRkjzpCiBRDg3qRG048=
