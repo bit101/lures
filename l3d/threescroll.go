@@ -1,8 +1,10 @@
-// Package lures contains strange attractor functions.
-package lures
+// Package l3d contains 3d strange attractor functions.
+package l3d
+
+import "github.com/bit101/lures"
 
 // ThreeScrollParams contains the default parameters for the ThreeScroll attractor.
-var ThreeScrollParams = LureParams{
+var ThreeScrollParams = lures.LureParams{
 	A: 32.48,
 	B: 45.84,
 	C: 1.18,

@@ -1,8 +1,10 @@
-// Package lures contains strange attractor functions.
-package lures
+// Package l3d contains 3d strange attractor functions.
+package l3d
+
+import "github.com/bit101/lures"
 
 // SprottParams contains the default parameters for the Sprott attractor.
-var SprottParams = LureParams{
+var SprottParams = lures.LureParams{
 	A: 2.07,
 	B: 1.79,
 }

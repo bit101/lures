@@ -1,8 +1,10 @@
-// Package lures contains strange attractor functions.
-package lures
+// Package l3d contains 3d strange attractor functions.
+package l3d
+
+import "github.com/bit101/lures"
 
 // RabFabParams contains the default parameters for the RabFab attractor.
-var RabFabParams = LureParams{
+var RabFabParams = lures.LureParams{
 	A: 0.14,
 	B: 0.1,
 }

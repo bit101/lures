@@ -1,8 +1,10 @@
-// Package lures contains strange attractor functions.
-package lures
+// Package l3d contains 3d strange attractor functions.
+package l3d
+
+import "github.com/bit101/lures"
 
 // LorenzParams contains the default parameters for the Lorenz attractor.
-var LorenzParams = LureParams{
+var LorenzParams = lures.LureParams{
 	A: 28.0,
 	B: 10.0,
 	C: 8.0 / 3.0,

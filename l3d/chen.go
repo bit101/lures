@@ -1,8 +1,10 @@
-// Package lures contains strange attractor functions.
-package lures
+// Package l3d contains 3d strange attractor functions.
+package l3d
+
+import "github.com/bit101/lures"
 
 // ChenParams contains the default parameters for the Chen attractor.
-var ChenParams = LureParams{
+var ChenParams = lures.LureParams{
 	// A: 36.0,
 	// B: 3.0,
 	// C: 20.0,

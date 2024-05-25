@@ -1,8 +1,10 @@
-// Package lures contains strange attractor functions.
-package lures
+// Package l3d contains 3d strange attractor functions.
+package l3d
+
+import "github.com/bit101/lures"
 
 // HalvorsenParams contains the default parameters for the Halvorsen attractor.
-var HalvorsenParams = LureParams{
+var HalvorsenParams = lures.LureParams{
 	A: 1.89,
 }
 

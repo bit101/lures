@@ -1,8 +1,10 @@
-// Package lures contains strange attractor functions.
-package lures
+// Package l3d contains 3d strange attractor functions.
+package l3d
+
+import "github.com/bit101/lures"
 
 // RosslerParams contains the default parameters for the Rossler attractor.
-var RosslerParams = LureParams{
+var RosslerParams = lures.LureParams{
 	A: 0.2,
 	B: 0.2,
 	C: 5.7,

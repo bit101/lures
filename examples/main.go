@@ -8,7 +8,7 @@ import (
 	cairo "github.com/bit101/blcairo"
 	"github.com/bit101/blcairo/render"
 	"github.com/bit101/blcairo/target"
-	"github.com/bit101/lures"
+	"github.com/bit101/lures/l3d"
 	"github.com/bit101/wire"
 )
 
@@ -43,7 +43,7 @@ func scene1(context *cairo.Context, width, height, percent float64) {
 
 	shape := wire.NewShape()
 	for range 10000 {
-		x, y, z = lures.FourWing(x, y, z, 0.1)
+		x, y, z = l3d.FourWing(x, y, z, 0.1)
 		// fmt.Println(x, y, z)
 		shape.AddXYZ(x, y, z)
 	}
