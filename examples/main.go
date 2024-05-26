@@ -38,22 +38,19 @@ func scene1(context *cairo.Context, width, height, percent float64) {
 	attr := l3d.NewAizawa()
 	x, y, z := attr.InitVals()
 	scale := attr.Scale
-	dt := attr.Dt
 
 	shape := wire.NewShape()
 	for range 20000 {
-		x, y, z = attr.Iterate(x, y, z, dt)
-		// fmt.Println(x, y, z)
+		x, y, z = attr.Iterate(x, y, z)
 		shape.AddXYZ(x, y, z)
 	}
-	// shape.TranslateZ(5)
 	shape.UniScale(scale)
 	shape.Rotate(percent*tau, percent*2*tau, 0)
 
 	shape.RenderPoints(2)
 
-	// shape.TranslateZ(-20)
-	// context.GaussianBlur(20)
-	// shape.RenderPoints(1)
+	shape.TranslateZ(-20)
+	context.GaussianBlur(20)
+	shape.RenderPoints(1)
 
 }

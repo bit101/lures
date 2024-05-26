@@ -20,7 +20,8 @@ func NewRabFab() RabFab {
 }
 
 // Iterate iterates a Rabinovich-Fabrikant attractor one time.
-func (r RabFab) Iterate(x, y, z, dt float64) (float64, float64, float64) {
+func (r RabFab) Iterate(x, y, z float64) (float64, float64, float64) {
+	dt := r.Dt
 	dx := y*(z-1+x*x) + r.Params.B*x
 	dy := x*(3*z+1-x*x) + r.Params.B*y
 	dz := -2 * z * (r.Params.A + x*y)

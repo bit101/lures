@@ -21,7 +21,8 @@ func NewRossler() Rossler {
 }
 
 // Iterate iterates a Rossler attractor one time.
-func (r Rossler) Iterate(x, y, z, dt float64) (float64, float64, float64) {
+func (r Rossler) Iterate(x, y, z float64) (float64, float64, float64) {
+	dt := r.Dt
 	dx := -(y + z)
 	dy := x + r.Params.A*y
 	dz := r.Params.B + z*(x-r.Params.C)

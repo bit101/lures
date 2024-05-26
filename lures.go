@@ -8,7 +8,7 @@ type Lure struct {
 }
 
 // Iterator is an interface for an attractor iterator function.
-type Iterator func(x, y, z, dt float64) (float64, float64, float64)
+type Iterator func(x, y, z float64) (float64, float64, float64)
 
 // Params defines the possible parameters for an attractor function.
 type Params struct {

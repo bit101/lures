@@ -21,7 +21,8 @@ func NewFourWings() FourWings {
 }
 
 // Iterate iterates a FourWings attractor one time.
-func (f FourWings) Iterate(x, y, z, dt float64) (float64, float64, float64) {
+func (f FourWings) Iterate(x, y, z float64) (float64, float64, float64) {
+	dt := f.Dt
 	dx := f.Params.A*x + y*z
 	dy := f.Params.B*x + f.Params.C*y - x*z
 	dz := -z - x*y

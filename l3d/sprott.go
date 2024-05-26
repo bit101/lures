@@ -20,7 +20,8 @@ func NewSprott() Sprott {
 }
 
 // Iterate iterates a Sprott attractor one time.
-func (s Sprott) Iterate(x, y, z, dt float64) (float64, float64, float64) {
+func (s Sprott) Iterate(x, y, z float64) (float64, float64, float64) {
+	dt := s.Dt
 	dx := y + s.Params.A*x*y + x*z
 	dy := 1 - s.Params.B*x*x + y*z
 	dz := x - x*x - y*y

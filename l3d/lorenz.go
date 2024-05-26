@@ -22,7 +22,8 @@ func NewLorenz() Lorenz {
 
 // Iterate iterates a Lorenz attractor one time.
 // Suggest translate z -20
-func (l Lorenz) Iterate(x, y, z, dt float64) (float64, float64, float64) {
+func (l Lorenz) Iterate(x, y, z float64) (float64, float64, float64) {
+	dt := l.Dt
 	dx := l.Params.B * (y - x)
 	dy := x*(l.Params.A-z) - y
 	dz := x*y - l.Params.C*z

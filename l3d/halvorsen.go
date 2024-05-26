@@ -20,7 +20,8 @@ func NewHalvorsen() Halvorsen {
 
 // Iterate iterates a Halvorsen attractor one time.
 // Suggest translate z +5 or 10
-func (h Halvorsen) Iterate(x, y, z, dt float64) (float64, float64, float64) {
+func (h Halvorsen) Iterate(x, y, z float64) (float64, float64, float64) {
+	dt := h.Dt
 	dx := -h.Params.A*x - 4*y - 4*z - y*y
 	dy := -h.Params.A*y - 4*z - 4*x - z*z
 	dz := -h.Params.A*z - 4*x - 4*y - x*x

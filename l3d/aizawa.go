@@ -24,7 +24,8 @@ func NewAizawa() Aizawa {
 }
 
 // Iterate iterates a Aizawa attractor one time.
-func (a Aizawa) Iterate(x, y, z, dt float64) (float64, float64, float64) {
+func (a Aizawa) Iterate(x, y, z float64) (float64, float64, float64) {
+	dt := a.Dt
 	dx := (z-a.Params.B)*x - a.Params.D*y
 	dy := a.Params.D*x + (z-a.Params.B)*y
 	dz := a.Params.C + a.Params.A*z - z*z*z/3 - (x*x+y*y)*(1+a.Params.E*z) + a.Params.F*z*x*x*x
