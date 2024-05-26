@@ -3,18 +3,32 @@ package l3d
 
 import "github.com/bit101/lures"
 
-// FourWingParams contains the default parameters for the FourWing attractor.
-var FourWingParams = lures.LureParams{
-	A: 0.2,
-	B: 0.01,
-	C: -0.4,
+// FourWings is a FourWings attractor.
+type FourWings lures.Lure
+
+// NewFourWings creates a new FourWings attractor.
+func NewFourWings() FourWings {
+	a := FourWings{}
+	a.Params.A = 0.2
+	a.Params.B = 0.01
+	a.Params.C = -0.4
+	a.InitX = 0.1
+	a.InitY = 0.0
+	a.InitZ = 0.0
+	a.Scale = 200.0
+	a.Dt = 0.1
+	return a
 }
 
-// FourWing iterates a FourWing attractor one time.
-// Suggest dt 0.1, scale 200x
-func FourWing(x, y, z, dt float64) (float64, float64, float64) {
-	dx := FourWingParams.A*x + y*z
-	dy := FourWingParams.B*x + FourWingParams.C*y - x*z
+// Iterate iterates a FourWings attractor one time.
+func (f FourWings) Iterate(x, y, z, dt float64) (float64, float64, float64) {
+	dx := f.Params.A*x + y*z
+	dy := f.Params.B*x + f.Params.C*y - x*z
 	dz := -z - x*y
 	return x + dx*dt, y + dy*dt, z + dz*dt
+}
+
+// InitVals returns the suggested initial point values for an attractor.
+func (f FourWings) InitVals() (float64, float64, float64) {
+	return f.InitX, f.InitY, f.InitZ
 }

@@ -3,16 +3,31 @@ package l3d
 
 import "github.com/bit101/lures"
 
-// HalvorsenParams contains the default parameters for the Halvorsen attractor.
-var HalvorsenParams = lures.LureParams{
-	A: 1.89,
+// Halvorsen is a Halvorsen attractor.
+type Halvorsen lures.Lure
+
+// NewHalvorsen creates a new Halvorsen attractor.
+func NewHalvorsen() Halvorsen {
+	a := Halvorsen{}
+	a.Params.A = 1.89
+	a.InitX = 0.1
+	a.InitY = 0.0
+	a.InitZ = 0.0
+	a.Scale = 50.0
+	a.Dt = 0.01
+	return a
 }
 
-// Halvorsen iterates a Halvorsen attractor one time.
-// Suggest dt 0.01, scale 30
-func Halvorsen(x, y, z, dt float64) (float64, float64, float64) {
-	dx := -HalvorsenParams.A*x - 4*y - 4*z - y*y
-	dy := -HalvorsenParams.A*y - 4*z - 4*x - z*z
-	dz := -HalvorsenParams.A*z - 4*x - 4*y - x*x
+// Iterate iterates a Halvorsen attractor one time.
+// Suggest translate z +5 or 10
+func (h Halvorsen) Iterate(x, y, z, dt float64) (float64, float64, float64) {
+	dx := -h.Params.A*x - 4*y - 4*z - y*y
+	dy := -h.Params.A*y - 4*z - 4*x - z*z
+	dz := -h.Params.A*z - 4*x - 4*y - x*x
 	return x + dx*dt, y + dy*dt, z + dz*dt
+}
+
+// InitVals returns the suggested initial point values for an attractor.
+func (h Halvorsen) InitVals() (float64, float64, float64) {
+	return h.InitX, h.InitY, h.InitZ
 }

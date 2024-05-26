@@ -20,13 +20,13 @@ const (
 
 func main() {
 	renderTarget := target.Video
-	fileName := "rossler"
+	fileName := "aizawa"
 
 	if renderTarget == target.Image {
 		render.CreateAndViewImage(800, 800, "out/"+fileName+".png", scene1, 0.0)
 	} else if renderTarget == target.Video {
 		program := render.NewProgram(400, 400, 30)
-		program.AddSceneWithFrames(scene1, 360)
+		program.AddSceneWithFrames(scene1, 180)
 		program.RenderAndPlayVideo("out/frames", "out/"+fileName+".mp4")
 	}
 }
@@ -34,21 +34,20 @@ func main() {
 func scene1(context *cairo.Context, width, height, percent float64) {
 	context.WhiteOnBlack()
 	wire.InitWorld(context, 200, 200, 800)
-	x := 1.1
-	y := 1.1
-	z := -0.1
-	// x := random.FloatRange(-1, 1)
-	// y := random.FloatRange(-1, 1)
-	// z := random.FloatRange(-1, 1)
+
+	attr := l3d.NewAizawa()
+	x, y, z := attr.InitVals()
+	scale := attr.Scale
+	dt := attr.Dt
 
 	shape := wire.NewShape()
-	for range 10000 {
-		x, y, z = l3d.FourWing(x, y, z, 0.1)
+	for range 20000 {
+		x, y, z = attr.Iterate(x, y, z, dt)
 		// fmt.Println(x, y, z)
 		shape.AddXYZ(x, y, z)
 	}
-	// shape.TranslateZ(-25)
-	shape.UniScale(200)
+	// shape.TranslateZ(5)
+	shape.UniScale(scale)
 	shape.Rotate(percent*tau, percent*2*tau, 0)
 
 	shape.RenderPoints(2)
