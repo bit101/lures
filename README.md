@@ -39,3 +39,5 @@ x, y, z = attr.Iterate(x, y, z, attr.Dt)
 5. Repeat steps 3 and 4 as many times as you want, usually in the tens of thousands.
 
 Alternately, get all the points and add to a list, then scale, project and render each point in the list. This is how [wire](https://github.com/bit101/wire) does it.
+
+Or, you could just generate a list of point values in whatever format you want, and import that into another program for rendering.
