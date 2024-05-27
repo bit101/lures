@@ -7,10 +7,17 @@ type Lure struct {
 	InitX, InitY, InitZ, Dt, Scale float64
 }
 
-// Iterator is an interface for an attractor iterator function.
-type Iterator func(x, y, z float64) (float64, float64, float64)
-
 // Params defines the possible parameters for an attractor function.
 type Params struct {
 	A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z float64
+}
+
+// InitVals2d returns the suggested initial point values for a 2d attractor.
+func (l Lure) InitVals2d() (float64, float64) {
+	return l.InitX, l.InitY
+}
+
+// InitVals3d returns the suggested initial point values for a 3d attractor.
+func (l Lure) InitVals3d() (float64, float64, float64) {
+	return l.InitX, l.InitY, l.InitZ
 }

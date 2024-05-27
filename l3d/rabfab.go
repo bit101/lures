@@ -4,7 +4,9 @@ package l3d
 import "github.com/bit101/lures"
 
 // RabFab is a Rabinovich-Fabrikant attractor.
-type RabFab lures.Lure
+type RabFab struct {
+	lures.Lure
+}
 
 // NewRabFab creates a new RabFab attractor.
 func NewRabFab() RabFab {
@@ -26,9 +28,4 @@ func (r RabFab) Iterate(x, y, z float64) (float64, float64, float64) {
 	dy := x*(3*z+1-x*x) + r.Params.B*y
 	dz := -2 * z * (r.Params.A + x*y)
 	return x + dx*dt, y + dy*dt, z + dz*dt
-}
-
-// InitVals returns the suggested initial point values for an attractor.
-func (r RabFab) InitVals() (float64, float64, float64) {
-	return r.InitX, r.InitY, r.InitZ
 }

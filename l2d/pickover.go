@@ -8,7 +8,9 @@ import (
 )
 
 // Pickover is a Aizawa attractor.
-type Pickover lures.Lure
+type Pickover struct {
+	lures.Lure
+}
 
 // NewPickover creates a new Pickover attractor.
 func NewPickover() Pickover {
@@ -28,9 +30,4 @@ func (a Pickover) Iterate(x, y float64) (float64, float64) {
 	x1 := math.Sin(a.Params.A*y) + a.Params.C*math.Cos(a.Params.A*x)
 	y1 := math.Sin(a.Params.B*x) + a.Params.D*math.Cos(a.Params.B*y)
 	return x1, y1
-}
-
-// InitVals returns the suggested initial point values for an attractor.
-func (a Pickover) InitVals() (float64, float64) {
-	return a.InitX, a.InitY
 }

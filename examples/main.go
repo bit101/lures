@@ -5,7 +5,6 @@ import (
 	"math"
 
 	"github.com/bit101/bitlib/blmath"
-	"github.com/bit101/bitlib/random"
 	cairo "github.com/bit101/blcairo"
 	"github.com/bit101/blcairo/render"
 	"github.com/bit101/blcairo/target"
@@ -30,10 +29,10 @@ func main() {
 		program := render.NewProgram(400, 400, 30)
 
 		// 3d
-		program.AddSceneWithFrames(scene1, 180)
+		// program.AddSceneWithFrames(scene1, 180)
 
 		// 2d
-		// program.AddSceneWithFrames(scene2, 180)
+		program.AddSceneWithFrames(scene2, 180)
 		program.RenderAndPlayVideo("out/frames", "out/"+fileName+".mp4")
 	}
 }
@@ -43,7 +42,7 @@ func scene1(context *cairo.Context, width, height, percent float64) {
 	wire.InitWorld(context, 200, 200, 800)
 
 	attr := l3d.NewAizawa()
-	x, y, z := attr.InitVals()
+	x, y, z := attr.InitVals3d()
 	scale := attr.Scale
 
 	shape := wire.NewShape()
@@ -66,12 +65,10 @@ func scene2(context *cairo.Context, width, height, percent float64) {
 	context.WhiteOnBlack()
 	wire.InitWorld(context, 200, 200, 800)
 
-	attr := l2d.NewPickover()
-	attr.Params.A = random.FloatRange(-2, 2)
-	attr.Params.B = random.FloatRange(-2, 2)
-	attr.Params.C = random.FloatRange(-2, 2)
-	attr.Params.D = random.FloatRange(-2, 2)
-	x, y := attr.InitVals()
+	attr := l2d.NewIkeda()
+	attr.Params.C = blmath.LoopSin(percent, 0.0, 0.4)
+	attr.Params.U = blmath.LoopSin(percent, 0.97, 0.9)
+	x, y := attr.InitVals2d()
 	scale := attr.Scale
 
 	shape := wire.NewShape()

@@ -4,7 +4,9 @@ package l3d
 import "github.com/bit101/lures"
 
 // Rossler is a Rossler attractor.
-type Rossler lures.Lure
+type Rossler struct {
+	lures.Lure
+}
 
 // NewRossler creates a new Rossler attractor.
 func NewRossler() Rossler {
@@ -27,9 +29,4 @@ func (r Rossler) Iterate(x, y, z float64) (float64, float64, float64) {
 	dy := x + r.Params.A*y
 	dz := r.Params.B + z*(x-r.Params.C)
 	return x + dx*dt, y + dy*dt, z + dz*dt
-}
-
-// InitVals returns the suggested initial point values for an attractor.
-func (r Rossler) InitVals() (float64, float64, float64) {
-	return r.InitX, r.InitY, r.InitZ
 }

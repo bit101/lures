@@ -7,8 +7,10 @@ import (
 	"github.com/bit101/lures"
 )
 
-// Dejong is a Aizawa attractor.
-type Dejong lures.Lure
+// Dejong is a Dejong attractor.
+type Dejong struct {
+	lures.Lure
+}
 
 // NewDejong creates a new Dejong attractor.
 func NewDejong() Dejong {
@@ -28,9 +30,4 @@ func (d Dejong) Iterate(x, y float64) (float64, float64) {
 	x1 := math.Sin(d.Params.A*y) - math.Cos(d.Params.B*x)
 	y1 := math.Sin(d.Params.C*x) - math.Cos(d.Params.D*y)
 	return x1, y1
-}
-
-// InitVals returns the suggested initial point values for an attractor.
-func (d Dejong) InitVals() (float64, float64) {
-	return d.InitX, d.InitY
 }

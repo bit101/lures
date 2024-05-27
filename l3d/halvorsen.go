@@ -4,7 +4,9 @@ package l3d
 import "github.com/bit101/lures"
 
 // Halvorsen is a Halvorsen attractor.
-type Halvorsen lures.Lure
+type Halvorsen struct {
+	lures.Lure
+}
 
 // NewHalvorsen creates a new Halvorsen attractor.
 func NewHalvorsen() Halvorsen {
@@ -26,9 +28,4 @@ func (h Halvorsen) Iterate(x, y, z float64) (float64, float64, float64) {
 	dy := -h.Params.A*y - 4*z - 4*x - z*z
 	dz := -h.Params.A*z - 4*x - 4*y - x*x
 	return x + dx*dt, y + dy*dt, z + dz*dt
-}
-
-// InitVals returns the suggested initial point values for an attractor.
-func (h Halvorsen) InitVals() (float64, float64, float64) {
-	return h.InitX, h.InitY, h.InitZ
 }

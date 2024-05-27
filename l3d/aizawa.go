@@ -4,7 +4,9 @@ package l3d
 import "github.com/bit101/lures"
 
 // Aizawa is a Aizawa attractor.
-type Aizawa lures.Lure
+type Aizawa struct {
+	lures.Lure
+}
 
 // NewAizawa creates a new Aizawa attractor.
 func NewAizawa() Aizawa {
@@ -30,9 +32,4 @@ func (a Aizawa) Iterate(x, y, z float64) (float64, float64, float64) {
 	dy := a.Params.D*x + (z-a.Params.B)*y
 	dz := a.Params.C + a.Params.A*z - z*z*z/3 - (x*x+y*y)*(1+a.Params.E*z) + a.Params.F*z*x*x*x
 	return x + dx*dt, y + dy*dt, z + dz*dt
-}
-
-// InitVals returns the suggested initial point values for an attractor.
-func (a Aizawa) InitVals() (float64, float64, float64) {
-	return a.InitX, a.InitY, a.InitZ
 }

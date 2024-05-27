@@ -44,10 +44,10 @@ attr := lures.NewAizawa()
 2. Get initial point values:
 
 ```
-x, y, z := attr.InitVals()
+x, y, z := attr.InitVals3d()
 ```
 
-3. Possibly, create some kind of point object, scale it using `attr.Scale`, project it to 2d, render it.
+3. Possibly, create some kind of point object, scale it using `attr.Scale` (or whatever scale you want), project it to 2d, render it.
 
 4. Get the next point using current `x`, `y`, `z`
 
@@ -64,9 +64,11 @@ Or, you could just generate a list of point values in whatever format you want, 
 
 ### Using custom parameters in 3d attractors
 
-You can ignore `InitX`, `InitY`, `InitZ` and `Scale`. These are not used internally and are only there as suggestions to create visually pleasing examples. 
+You can get `InitX`, `InitY` and `InitZ` easily by calling `InitValues3d()`. But you don't have to use those values. Use whatever starting values you want. Some attractors are very sensitive to the value of the initial point though, so these are good defaults.
 
-For the actual attractor parameters (`A` through `Z`) and `Dt` these _are_ used internally. You can change them after you create your attractor object:
+You can also use or ignore the default `Scale` value. Again, it's only there as a sensible starting option. But use whatever value makes sense.
+
+For the actual attractor parameters (`A` through `Z`) and `Dt` these are used internally in the attractor's `Iterate` method. You can change them after you create your attractor object:
 
 ```
 attr := l3d.NewAizawa()
@@ -74,7 +76,7 @@ attr.Params.A = 0.83
 attr.Dt = 0.02
 ```
 
-Then render the attractor however you like. It will use the updated parameter value.
+Then render the attractor however you like. It will use the updated values.
 
 It's suggested to change parameters by small amounts at first. A small change might make a large difference in the output.
 
@@ -105,13 +107,13 @@ The `dt` value is not used in these types of attractors.
 attr := lures.NewPickover()
 ```
 
-2. Get initial point values:
+2. Get initial point values.
 
 ```
-x, y := attr.InitVals()
+x, y := attr.InitVals2d()
 ```
 
-3. Possibly, create some kind of point object, scale it using `attr.Scale` and render it.
+3. Transform this point, possibly using `attr.Scale` and render it.
 
 4. Get the next point using current `x`, `y`
 
@@ -121,10 +123,11 @@ x, y = attr.Iterate(x, y)
 
 5. Repeat steps 3 and 4 as many times as you want, usually in the tens of thousands at least.
 
-Rather than rendering directly, you may want to save the pixel hits in a grid and then do coloring based on density (how many times the pixel was visited).
+Rather than rendering directly, you may want to save the pixel hits in a grid and then do coloring based on density (how many times the pixel was visited). Or use other custom rendering methods with the points.
 
 ### Using custom parameters in 2d attractors
 
-Exactly the same as in 3d attractors, but no `dt` value.
+Exactly the same as in 3d attractors, but 2d attractors do not use the `dt` value.
 
-2d attractors often seem to be less dependent on the initial point values and tend to converge to the general shape of the attractor no matter what point you start with. Experimenting with random parameters is more useful.
+2d attractors often seem to be less dependent on the initial point values and tend to converge to the general shape of the attractor no matter what point you start with. So experimenting with random parameters is more useful with these attractors.
+

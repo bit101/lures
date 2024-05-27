@@ -4,7 +4,9 @@ package l3d
 import "github.com/bit101/lures"
 
 // Sprott is a Sprott attractor.
-type Sprott lures.Lure
+type Sprott struct {
+	lures.Lure
+}
 
 // NewSprott creates a new Sprott attractor.
 func NewSprott() Sprott {
@@ -26,9 +28,4 @@ func (s Sprott) Iterate(x, y, z float64) (float64, float64, float64) {
 	dy := 1 - s.Params.B*x*x + y*z
 	dz := x - x*x - y*y
 	return x + dx*dt, y + dy*dt, z + dz*dt
-}
-
-// InitVals returns the suggested initial point values for an attractor.
-func (s Sprott) InitVals() (float64, float64, float64) {
-	return s.InitX, s.InitY, s.InitZ
 }

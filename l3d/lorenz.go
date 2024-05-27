@@ -4,7 +4,9 @@ package l3d
 import "github.com/bit101/lures"
 
 // Lorenz is a Lorenz-Fabrikant attractor.
-type Lorenz lures.Lure
+type Lorenz struct {
+	lures.Lure
+}
 
 // NewLorenz creates a new Lorenz attractor.
 func NewLorenz() Lorenz {
@@ -28,9 +30,4 @@ func (l Lorenz) Iterate(x, y, z float64) (float64, float64, float64) {
 	dy := x*(l.Params.A-z) - y
 	dz := x*y - l.Params.C*z
 	return x + dx*dt, y + dy*dt, z + dz*dt
-}
-
-// InitVals returns the suggested initial point values for an attractor.
-func (l Lorenz) InitVals() (float64, float64, float64) {
-	return l.InitX, l.InitY, l.InitZ
 }

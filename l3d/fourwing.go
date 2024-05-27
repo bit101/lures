@@ -4,7 +4,9 @@ package l3d
 import "github.com/bit101/lures"
 
 // FourWings is a FourWings attractor.
-type FourWings lures.Lure
+type FourWings struct {
+	lures.Lure
+}
 
 // NewFourWings creates a new FourWings attractor.
 func NewFourWings() FourWings {
@@ -27,9 +29,4 @@ func (f FourWings) Iterate(x, y, z float64) (float64, float64, float64) {
 	dy := f.Params.B*x + f.Params.C*y - x*z
 	dz := -z - x*y
 	return x + dx*dt, y + dy*dt, z + dz*dt
-}
-
-// InitVals returns the suggested initial point values for an attractor.
-func (f FourWings) InitVals() (float64, float64, float64) {
-	return f.InitX, f.InitY, f.InitZ
 }
