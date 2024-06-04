@@ -18,6 +18,7 @@ func NewSprott() Sprott {
 	a.InitZ = 0.1
 	a.Scale = 200.0
 	a.Dt = 0.01
+	a.Cx = -0.7
 	return a
 }
 

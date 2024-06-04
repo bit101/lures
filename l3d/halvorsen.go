@@ -15,8 +15,11 @@ func NewHalvorsen() Halvorsen {
 	a.InitX = 0.1
 	a.InitY = 0.0
 	a.InitZ = 0.0
-	a.Scale = 50.0
+	a.Scale = 30.0
 	a.Dt = 0.01
+	a.Cx = 3
+	a.Cy = 5
+	a.Cz = 5
 	return a
 }
 

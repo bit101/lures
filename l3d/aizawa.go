@@ -22,6 +22,7 @@ func NewAizawa() Aizawa {
 	a.InitZ = 0.0
 	a.Scale = 200.0
 	a.Dt = 0.01
+	a.Cz = -0.6
 	return a
 }
 

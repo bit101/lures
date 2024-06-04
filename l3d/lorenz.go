@@ -19,6 +19,7 @@ func NewLorenz() Lorenz {
 	a.InitZ = 0.0
 	a.Scale = 10.0
 	a.Dt = 0.01
+	a.Cz = -25
 	return a
 }
 
