@@ -131,3 +131,8 @@ Exactly the same as in 3d attractors, but 2d attractors do not use the `dt` valu
 
 2d attractors often seem to be less dependent on the initial point values and tend to converge to the general shape of the attractor no matter what point you start with. So experimenting with random parameters is more useful with these attractors.
 
+## Centering Attractors
+
+Some attractors wind up being nicely centered around the origin (in 2d or 3d). Others might be offset some distance on one or more axis. For example, most of the point in an untransformed Lorenz attractor will lay a significant distance into the positive z-axis. If you then rotate the attractor, the shape will orbit the origin, rather than rotating on its own visual center. If you translate the resulting Lorenz point list about -25 units on the z-axis, it will scale and rotate from its own visual center, which is usually more visually pleasing.
+
+To that end, each attractor also has 'Cx', 'Cy', and 'Cz' properties. These are not scientifically calculated, but rather arrived at through trial and error while attempting to move the attractor to be roughly centered on the origin. Consider them suggestions. Translate each point by the suggested amount on each axis _after_ calculating all the points and before rendering. Translating a point and then using that point to calculated the next point will not give you the expected results.
