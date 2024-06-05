@@ -27,10 +27,10 @@ func NewDequanLi() DequanLi {
 }
 
 // Iterate iterates a DequanLi attractor one time.
-func (a DequanLi) Iterate(x, y, z float64) (float64, float64, float64) {
-	dt := a.Dt
-	dx := a.Params.A*(y-x) + a.Params.D*x*z
-	dy := a.Params.K*x + a.Params.F*y - x*z
-	dz := a.Params.C*z + x*y - a.Params.E*x*x
+func (r DequanLi) Iterate(x, y, z float64) (float64, float64, float64) {
+	dt := r.Dt
+	dx := r.Params.A*(y-x) + r.Params.D*x*z
+	dy := r.Params.K*x + r.Params.F*y - x*z
+	dz := r.Params.C*z + x*y - r.Params.E*x*x
 	return x + dx*dt, y + dy*dt, z + dz*dt
 }

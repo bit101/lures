@@ -3,7 +3,7 @@ package l3d
 
 import "github.com/bit101/lures"
 
-// Aizawa is a Aizawa attractor.
+// Aizawa is an Aizawa attractor.
 type Aizawa struct {
 	lures.Lure
 }

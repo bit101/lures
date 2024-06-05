@@ -3,8 +3,10 @@ package lures
 
 // Lure is a struct defining a single attractor type.
 type Lure struct {
-	Params                                     Params
-	InitX, InitY, InitZ, Dt, Scale, Cx, Cy, Cz float64
+	Params              Params
+	InitX, InitY, InitZ float64
+	Dt, Scale           float64
+	Cx, Cy, Cz          float64
 }
 
 // Params defines the possible parameters for an attractor function.

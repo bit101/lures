@@ -26,8 +26,8 @@ func NewPickover() Pickover {
 }
 
 // Iterate iterates a Pickover attractor one time.
-func (a Pickover) Iterate(x, y float64) (float64, float64) {
-	x1 := math.Sin(a.Params.A*y) + a.Params.C*math.Cos(a.Params.A*x)
-	y1 := math.Sin(a.Params.B*x) + a.Params.D*math.Cos(a.Params.B*y)
+func (p Pickover) Iterate(x, y float64) (float64, float64) {
+	x1 := math.Sin(p.Params.A*y) + p.Params.C*math.Cos(p.Params.A*x)
+	y1 := math.Sin(p.Params.B*x) + p.Params.D*math.Cos(p.Params.B*y)
 	return x1, y1
 }

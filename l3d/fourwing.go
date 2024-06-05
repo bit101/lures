@@ -17,7 +17,7 @@ func NewFourWings() FourWings {
 	a.InitX = 0.1
 	a.InitY = 0.0
 	a.InitZ = 0.0
-	a.Scale = 200.0
+	a.Scale = 125.0
 	a.Dt = 0.1
 	return a
 }
