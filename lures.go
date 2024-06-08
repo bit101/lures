@@ -33,3 +33,16 @@ func (l Lure) Center2d() (float64, float64) {
 func (l Lure) Center3d() (float64, float64, float64) {
 	return l.Cx, l.Cy, l.Cz
 }
+
+// GetScale returns the scale value.
+func (l Lure) GetScale() float64 {
+	return l.Scale
+}
+
+// Lure3d  is an interface for a 3d attractor.
+type Lure3d interface {
+	GetScale() float64
+	InitVals3d() (float64, float64, float64)
+	Center3d() (float64, float64, float64)
+	Iterate(x, y, z float64) (float64, float64, float64)
+}
